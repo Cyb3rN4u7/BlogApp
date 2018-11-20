@@ -1,4 +1,4 @@
-console.log('Creating the store');
+console.log('Combining Redux with React');
 import { createStore } from 'redux';
 import { createPost, editPost, setFilter } from './actions';
 import appReducer from './reducers';
