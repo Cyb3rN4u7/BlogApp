@@ -1,18 +1,39 @@
-console.log('Implementing reducers');
+console.log('Creating the store');
+import { createStore } from 'redux';
 import { createPost, editPost, setFilter } from './actions';
 import appReducer from './reducers';
 
 
 
-let state = appReducer(undefined, 'INIT_ACTION');
-console.log('initial state',state);
-const action = createPost('Achilles', 'Learning Redux');
-const action2 = createPost('nullWatch', 'Exploring Redux');
-// const filter = setFilter('random');
-// const newState = appReducer(initialState, action);
-state = appReducer(state, action);
-state = appReducer(state, action2);
-state = appReducer(state, editPost(1,'Edited post'));
-state = appReducer(state, setFilter('hidden'));
+let store = createStore(appReducer,{});
+console.log('store',store.getState());
+const unsubscribe = store.subscribe(() => {
+    console.log('state changed:',store.getState())
+});
 
-console.log('state',state);
+
+const root = document.getElementById('root');
+
+const render = () => {   
+    root.innerHTML = '';
+    const { posts } = store.getState();
+    posts.forEach(post => {
+        const item = document.createElement('li');
+        const text = document.createTextNode(`${post.user} - ${post.text}`);
+        item.appendChild(text);
+        root.appendChild(item);
+    });
+}
+
+const stopRender = store.subscribe(render);
+
+store.dispatch(createPost('dan', 'hello world'));
+store.dispatch(createPost('des', 'second post'));
+// const action2 = createPost('nullWatch', 'Exploring Redux');
+// // const filter = setFilter('random');
+// // const newState = appReducer(initialState, action);
+// state = appReducer(state, action);
+// state = appReducer(state, action2);
+// state = appReducer(state, editPost(1,'Edited post'));
+// state = appReducer(state, setFilter('hidden'));
+
