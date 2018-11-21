@@ -1,17 +1,15 @@
-import React from 'react';
-import Post from './Post.jsx';
+import React from 'react'
+import Post from './Post.jsx'
 
-const PostList = ({posts}) => {
+const PostList = ({ posts }) =>
+  <ul>
+    {posts.map(
+      (post, i) =>
+        <li key={i.toString()}>
+          <Post {...post} />
+        </li>
+    )}
+  </ul>
 
-    return (
-        <ul>
-       { 
-           posts.map((post, index)=>{
-            return <li key={index.toString()}><Post {...post}/> </li>
-        })
-        }
-        </ul>
-    );
-}
+export default PostList
 
-export default PostList;

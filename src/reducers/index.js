@@ -1,12 +1,14 @@
-import { combineReducers } from 'redux';
-import filterReducer from './filter';
-import postsReducer from './posts';
-import usersReducer from './user';
+import { combineReducers } from 'redux'
+
+import usersReducer from './users'
+import postsReducer from './posts'
+import filterReducer from './filter'
 
 const appReducer = combineReducers({
-    filter: filterReducer,
-    posts: postsReducer,
-    users: usersReducer
-});
+  users: usersReducer,
+  posts: postsReducer,
+  filter: filterReducer,
+})
 
-export default appReducer;
+export default appReducer
+
