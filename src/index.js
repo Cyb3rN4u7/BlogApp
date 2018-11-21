@@ -1,4 +1,4 @@
-console.log('Combining Redux with React');
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
@@ -6,28 +6,25 @@ import { createPost, editPost, setFilter } from './actions';
 import appReducer from './reducers';
 
 
-import PostList from './components/PostList.jsx';
+import ConnectedPostList from './components/ConnectedPostList.jsx';
 
 
 
-let store = createStore(appReducer,{});
+let store = createStore(appReducer);
 console.log('store',store.getState());
-const unsubscribe = store.subscribe(() => {
-    console.log('state changed:',store.getState())
-});
 
 
-const posts = [  { user: 'dan', text: 'hello world!' },  { user: 'des', text: 'hi!' }];
-
+store.dispatch(createPost('dan', 'hello world'));
+store.dispatch(createPost('des', 'second post'));
+setTimeout(()=> store.dispatch(createPost('Achilles','Phones and more!')), 2000);
 
 ReactDOM.render(
-    <PostList posts={posts} /> ,
+    <ConnectedPostList store={store} /> ,
     document.getElementById('root')
 )
 
 // const stopRender = store.subscribe(render);
 
-store.dispatch(createPost('dan', 'hello world'));
-store.dispatch(createPost('des', 'second post'));
+
 
 
