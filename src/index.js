@@ -6,7 +6,7 @@ import { createPost, editPost, setFilter } from './actions';
 import appReducer from './reducers';
 
 
-import ConnectedPostList from './components/ConnectedPostList.jsx';
+import ConnectedPostList from './containers/ConnectedPostList.jsx';
 
 
 

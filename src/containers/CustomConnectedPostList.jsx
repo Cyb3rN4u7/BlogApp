@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PostList from './PostList.jsx';
+import PostList from '../components/PostList.jsx';
 
-class ConnectedPostList extends Component {
+class CustomConnectedPostList extends Component {
 
     constructor(props) {
         super(props);
@@ -24,4 +24,4 @@ class ConnectedPostList extends Component {
     }
 }
 
-export default ConnectedPostList;
+export default CustomConnectedPostList;
