@@ -22,10 +22,45 @@ const Greeting = ({name}) => {
 )
 };
 
+class Timer extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            seconds: 0,
+            somethingElse: true
+        }
+    }
+
+
+    componentDidMount(){
+        this.timer = setInterval(()=>{
+            this.tick(), 1000
+        });
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    
+    tick() {
+        this.setState({seconds: this.state.seconds + 1});
+    }
+
+    render() {
+        const {seconds} = this.state;
+        return(
+            <h1>You have spend {(seconds/100).toFixed(0)} seconds here</h1>
+        )
+    } 
+}
+
 const App = () => (
     <div>
         <Greeting name ="Achilles" />
-        <Greeting name="Mark" />
+        <Timer />
+
     </div>
     );
 
