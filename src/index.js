@@ -14,10 +14,24 @@ const unsubscribe = store.subscribe(() => {
 });
 
 
-const root = document.getElementById('root');
+
+const Greeting = ({name}) => {
+    const upper = name.toUpperCase();
+   return (
+    <h1>Hello {upper}!</h1>
+)
+};
+
+const App = () => (
+    <div>
+        <Greeting name ="Achilles" />
+        <Greeting name="Mark" />
+    </div>
+    );
+
 
 ReactDOM.render(
-    <h1>hello</h1>,
+    <App /> ,
     document.getElementById('root')
 )
 
