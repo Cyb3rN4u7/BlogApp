@@ -6,7 +6,12 @@ const UserList = ({ users }) => {
     return  <ul>
                 {
                     users.map((user, i) => 
-                    <li key={i}><User {...user}/></li>
+                    <li style={{
+                        backgroundColor: '#6e1a1a',
+                        margin: '0.5em',
+                        padding: '5px'
+                      }}
+                    key={i}><User {...user}/></li>
                     )
                 }
             </ul>
