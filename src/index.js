@@ -1,4 +1,3 @@
-import 'materialize-css/dist/css/materialize.min.css'
 import { createStore } from 'redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -34,4 +33,3 @@ ReactDOM.render(
   <App store={store} />,
   document.getElementById('root')
 )
-
