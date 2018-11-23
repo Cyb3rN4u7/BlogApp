@@ -5,7 +5,12 @@ const PostList = ({ posts }) =>
   <ul>
     {posts.map(
       (post, i) =>
-        <li key={i.toString()}>
+        <li style={{
+          backgroundColor: '#337a1d',
+          margin: '0.5em',
+          padding: '5px'
+        }}
+        key={i.toString()}>
           <Post {...post} />
         </li>
     )}
