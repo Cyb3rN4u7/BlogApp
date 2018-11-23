@@ -1,3 +1,4 @@
+import DevTools from './containers/DevTools.jsx';
 import { createStore } from 'redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -6,7 +7,7 @@ import appReducer from './reducers'
 import { createUser, createPost } from './actions'
 import App from './components/App.jsx'
 
-let store = createStore(appReducer)
+let store = createStore(appReducer, {}, DevTools.instrument())
 
 // create users
 store.dispatch(createUser('dan', 'Daniel Bugl'))
