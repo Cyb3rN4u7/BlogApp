@@ -4,8 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "npm run build:app && serve -p 8080 dist/",
+    "build:app": "npm run build:webpack && npm run build:assets",
+    "build:webpack": "cross-env NODE_ENV=production webpack",
+    "build:assets": "shx cp index.html dist/",
+    "start:dev": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
@@ -22,9 +25,12 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "cross-env": "^5.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.4",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "serve": "^10.1.1",
+    "shx": "^0.3.2"
   }
 }

@@ -25,7 +25,7 @@ const App = ({ store }) =>
        className="col m8"> <ConnectedUserList />
       </div>
     </div>
-    <DevTools />
+    {(process.env.NODE_ENV !== 'production') && <DevTools />}
   </div>
   </Provider>
  
