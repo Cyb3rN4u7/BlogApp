@@ -1,7 +1,7 @@
 import React from 'react'
 
 import User from '../users/User.jsx'
-import Timestamp from '../Timestamp.jsx'
+import Updated from './Updated.jsx';
 import Category from './Category.jsx';
 
 const Post = ({ user, title, text, category, created, updated }) =>
@@ -9,9 +9,10 @@ const Post = ({ user, title, text, category, created, updated }) =>
     <h6 className="center">{title}</h6>
     <p>{text}</p> 
     Category : <Category data={category} /><br/>
-    (Created at: <Timestamp data={created} />, Updated at: <Timestamp data={updated} />) <br/>
-    <i className="right">{' ~ '}<User {...user} /></i><br/>
+    <Updated created={created} updated={updated} /> <br/>
+    <i style={{color: '#e8e71a'}} className="right">{' ~ '}<User {...user} /></i><br/>
   </span>
+
 
 export default Post
 
