@@ -6,9 +6,11 @@ import Category from './Category.jsx';
 
 const Post = ({ user, title, text, category, created, updated }) =>
   <span>
-    <b>{title}</b>: {text}
-    <i>{' ~ '}<User {...user} /></i><br />
-    (Created at: <Timestamp data={created} />, Updated at: <Timestamp data={updated} />) <Category data={category} />
+    <h6 className="center">{title}</h6>
+    <p>{text}</p> 
+    Category : <Category data={category} /><br/>
+    (Created at: <Timestamp data={created} />, Updated at: <Timestamp data={updated} />) <br/>
+    <i className="right">{' ~ '}<User {...user} /></i><br/>
   </span>
 
 export default Post

@@ -10,20 +10,12 @@ const App = ({ store }) =>
   <Provider store ={store}>
  <div className="container">
     <h1 className="center">React/Redux blog app</h1>
-    <div className="center"><ConnectedFilterList /></div>
+    <div className="row center">
+      <div className="col m8"><ConnectedFilterList /></div>
+    </div>
     <div className="row">
-      <div style={{backgroundColor: '#47a52a',
-                  margin: '1em',
-                  color: '#fff'
-                               }} 
-       className="col m8"><ConnectedPostList  />
-       </div>
-      <div style={{backgroundColor: 'brown',
-                  margin: '1em',
-                  color: '#fff'
-                               }}
-       className="col m8"> <ConnectedUserList />
-      </div>
+      <div><ConnectedPostList /></div>
+      <div><ConnectedUserList /></div>
     </div>
     {(process.env.NODE_ENV !== 'production') && <DevTools />}
   </div>

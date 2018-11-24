@@ -3,7 +3,13 @@ import React from 'react';
 import User from './User.jsx';
 
 const UserList = ({ users }) => {
-    return  <ul>
+    return   <div style={{backgroundColor: 'brown',
+                                    margin: '1em',
+                                    color: '#fff'
+                                                }}
+                                className="col m3">
+                    <h5 className="center">Users</h5>
+                    <ul>
                 {
                     users.map((user, i) => 
                     <li style={{
@@ -14,7 +20,8 @@ const UserList = ({ users }) => {
                     key={i}><User {...user}/></li>
                     )
                 }
-            </ul>
+                    </ul>
+            </div>
 }
 
 export default UserList;

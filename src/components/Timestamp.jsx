@@ -1,8 +1,9 @@
 import React from 'react'
+import moment from 'moment';
 
 const Timestamp = ({ data }) => {
-  const d = new Date(data)
-  return <span>{d.toUTCString()}</span>
+  const d = moment(new Date(data)).format("MMM Do YY");
+  return <span>{d}</span>
 }
 
 export default Timestamp
